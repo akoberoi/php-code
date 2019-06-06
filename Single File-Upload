@@ -1,0 +1,23 @@
+//File Upload Code
+
+if(!empty($_FILES['filestudent']))
+{
+$path = "../uploads/";
+$path = $path . basename( $_FILES['filestudent']['name']);
+
+if(move_uploaded_file($_FILES['filestudent']['tmp_name'], "../uploads/Student_Application.pdf"))
+{
+echo "The file ". basename( $_FILES['filestudent']['name']). 
+" has been uploaded";
+
+
+header("location:upload-pdf.php?fileuploadedsuccessffully");
+
+} 
+else
+{
+echo "There was an error uploading the file, please try again!";
+
+}
+}
+}
